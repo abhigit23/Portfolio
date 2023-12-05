@@ -19,7 +19,11 @@ import { TbBrandLeetcode } from "react-icons/tb";
 export const links = [
   { name: "About Me", icon: FaUser },
   { name: "Portfolio", icon: FaLaptopCode },
-  { name: "Resume", icon: FaFileInvoice },
+  {
+    name: "Resume",
+    icon: FaFileInvoice,
+    link: "https://docs.google.com/document/d/1M9gpn6ibBa0IhDza7ccbVBCMKJ6riPmv_GeqE_Jg8HE",
+  },
   { name: "Blog", icon: FaBlog },
   { name: "Contact", icon: FaAddressCard },
 ];

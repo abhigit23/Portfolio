@@ -8,7 +8,7 @@ function NavLinks() {
         <ListItem key={i}>
           <Flex align="center">
             <ListIcon as={val.icon} />
-            <Link>{val.name}</Link>
+            <Link href={val.link}>{val.name}</Link>
           </Flex>
         </ListItem>
       ))}

@@ -5,6 +5,11 @@ import img from "../assets/coding.jpg";
 import { profileDetails } from "../details";
 
 function Bio() {
+  const openResume = () => {
+    window.open(
+      "https://docs.google.com/document/d/1M9gpn6ibBa0IhDza7ccbVBCMKJ6riPmv_GeqE_Jg8HE"
+    );
+  };
   return (
     <HStack align="flex-start" gap={10}>
       {profileDetails.map((val, i) => (
@@ -20,7 +25,9 @@ function Bio() {
             <CustomButton color="green" icon={FaArrowCircleRight}>
               View Portfolio
             </CustomButton>
-            <CustomButton icon={FaFileInvoice}>View Resume</CustomButton>
+            <CustomButton icon={FaFileInvoice} handleClick={openResume}>
+              View Resume
+            </CustomButton>
           </HStack>
         </Box>
       ))}

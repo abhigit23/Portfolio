@@ -5,11 +5,12 @@ interface Props {
   icon: IconType;
   color?: string;
   children: string;
+  handleClick?: () => void;
 }
 
-function CustomButton({ icon, color, children }: Props) {
+function CustomButton({ icon, color, children, handleClick }: Props) {
   return (
-    <Button colorScheme={color}>
+    <Button colorScheme={color} onClick={handleClick}>
       <Icon as={icon} marginRight={1} />
       {children}
     </Button>

@@ -1,25 +1,40 @@
-import { Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
+import MobileHeader from "./components/MobileHeader";
+import useSidebarStyle from "./components/useSidebarStyle";
 
 function App() {
-  const bg = useColorModeValue(
-    "linear(to-t,  green.300, green.400)",
-    "linear(to-t, green.400, green.500)"
-  );
+  const sidebarStyle = useSidebarStyle();
 
   return (
     <Grid
       templateAreas={{ base: `"nav" "main"`, lg: `"nav main"` }}
       templateColumns={{
-        base: "1fr",
-        lg: "250px 1fr",
+        base: "minmax(0, 1fr)",
+        lg: "250px minmax(0, 1fr)",
       }}
     >
-      <GridItem color="white" bgGradient={bg} area={`nav`} padding={5}>
-        <Aside />
+      <GridItem
+        {...sidebarStyle}
+        area="nav"
+        paddingX={{ base: 4, lg: 5 }}
+        paddingY={{ base: 2, lg: 5 }}
+        position="sticky"
+        top={0}
+        zIndex="sticky"
+        height={{ lg: "100vh" }}
+        overflowY={{ lg: "auto" }}
+        scrollbar="hidden"
+      >
+        <Box hideFrom="lg">
+          <MobileHeader />
+        </Box>
+        <Box hideBelow="lg" height="full">
+          <Aside />
+        </Box>
       </GridItem>
-      <GridItem area={`main`} padding={5}>
+      <GridItem area="main" padding={{ base: 4, md: 5 }}>
         <Main />
       </GridItem>
     </Grid>

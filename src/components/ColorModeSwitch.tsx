@@ -1,16 +1,18 @@
-import { VStack, Switch, Text, useColorMode } from "@chakra-ui/react";
+import { Switch } from "@chakra-ui/react";
+import { useColorMode } from "./ui/use-color-mode";
 
 function ColorModeSwitch() {
   const { toggleColorMode, colorMode } = useColorMode();
   return (
-    <VStack>
-      <Switch
-        colorScheme="green"
-        isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
-      />
-      <Text>Dark Mode</Text>
-    </VStack>
+    <Switch.Root
+      colorPalette="green"
+      checked={colorMode === "dark"}
+      onCheckedChange={toggleColorMode}
+    >
+      <Switch.HiddenInput />
+      <Switch.Control />
+      <Switch.Label>Dark Mode</Switch.Label>
+    </Switch.Root>
   );
 }
 

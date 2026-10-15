@@ -1,0 +1,14 @@
+import { ThemeProvider } from "next-themes";
+import { ReactNode } from "react";
+
+export function ColorModeProvider({ children }: { children: ReactNode }) {
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      disableTransitionOnChange
+    >
+      {children}
+    </ThemeProvider>
+  );
+}

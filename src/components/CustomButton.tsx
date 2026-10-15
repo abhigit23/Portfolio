@@ -8,10 +8,12 @@ interface Props {
   handleClick?: () => void;
 }
 
-function CustomButton({ icon, color, children, handleClick }: Props) {
+function CustomButton({ icon: ButtonIcon, color, children, handleClick }: Props) {
   return (
-    <Button colorScheme={color} onClick={handleClick}>
-      <Icon as={icon} marginRight={1} />
+    <Button colorPalette={color} onClick={handleClick}>
+      <Icon>
+        <ButtonIcon />
+      </Icon>
       {children}
     </Button>
   );

@@ -1,19 +1,41 @@
-import { Box, Heading, Icon, SimpleGrid, Text } from "@chakra-ui/react";
-import { skills } from "../details";
+import {
+  Badge,
+  Box,
+  HStack,
+  Heading,
+  Icon,
+  SimpleGrid,
+  Wrap,
+} from "@chakra-ui/react";
+import SectionHeading from "./SectionHeading";
+import { skillGroups } from "../details";
 
 function Skills() {
   return (
-    <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} gap={2}>
-      {skills.map((val, i) => (
-        <Box key={i} marginY={4}>
-          <Icon as={val.icon} fontSize={25} />
-          <Heading as="h3" size="md">
-            {val.skill}
-          </Heading>
-          <Text>{val.description}</Text>
-        </Box>
-      ))}
-    </SimpleGrid>
+    <Box as="section" id="skills" marginY={5}>
+      <SectionHeading>Skills</SectionHeading>
+      <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+        {skillGroups.map(({ group, icon: GroupIcon, items }) => (
+          <Box key={group}>
+            <HStack marginBottom={2}>
+              <Icon fontSize={22}>
+                <GroupIcon />
+              </Icon>
+              <Heading as="h3" size="lg">
+                {group}
+              </Heading>
+            </HStack>
+            <Wrap gap={2}>
+              {items.map((item) => (
+                <Badge key={item} colorPalette="green" size="lg">
+                  {item}
+                </Badge>
+              ))}
+            </Wrap>
+          </Box>
+        ))}
+      </SimpleGrid>
+    </Box>
   );
 }
 

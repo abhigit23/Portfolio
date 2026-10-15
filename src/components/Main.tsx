@@ -1,15 +1,19 @@
-import { Divider } from "@chakra-ui/react";
+import { Separator } from "@chakra-ui/react";
 import Bio from "./Bio";
+import Education from "./Education";
+import Experience from "./Experience";
+import Projects from "./Projects";
 import Skills from "./Skills";
-import WhatIDo from "./WhatIDo";
 
 function Main() {
   return (
     <>
       <Bio />
-      <Divider />
-      <WhatIDo />
+      <Separator />
+      <Experience />
+      <Projects />
       <Skills />
+      <Education />
     </>
   );
 }
